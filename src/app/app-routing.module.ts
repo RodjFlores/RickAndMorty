@@ -15,6 +15,7 @@ const routes: Routes = [
     loadChildren: () => import('../../src/main/episodes/episodes.module').then(m => m.EpisodesModule)
   },
   { path: 'connect', component: ConnectComponent },
+  { path: '**', redirectTo: 'home', pathMatch: 'full'},
 ];
 
 @NgModule({

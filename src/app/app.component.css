@@ -1,10 +1,37 @@
-.nav{
+.nav {
     display: flex;
     height: 100px;
-    justify-content: center;
-    background-color: #737171;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #272727;
+    margin: 0px
 }
 
-.nav-item{
-    margin:6px
+.nav-item-container {
+    margin-right: auto;
+}
+
+.nav-item {
+    margin-right: 12px;
+    color: #fff;
+    -webkit-transition: color 0.7s;
+    -moz-transition: color 0.7s;
+    -o-transition: color 0.7s;
+    -ms-transition: color 0.7s;
+    transition: color 0.7s;
+}
+
+.nav-item:hover {
+    cursor: pointer;
+    color: #7CE148;
+}
+
+
+.nav-logo {
+    width: 250px;
+    margin-right: auto;
+}
+
+.nav-logo:hover {
+    cursor: pointer;
 }
