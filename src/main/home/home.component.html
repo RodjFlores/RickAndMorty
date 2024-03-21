@@ -1,4 +1,22 @@
 <div class="home">
-    HELLo
-
+    <div class="home-container">
+        <img class="home-logo" src="../../assets/rick-and-morty-logo.png" />
+    </div>
+    <div class="home-container">
+        <div class="home-item" (click)="navigateTo('characters')">
+            <b>Characters:</b>
+            <p>Shows the stars of the universe</p>
+            <img class="home-item-img" src="../../assets/003-neptuno.png" />
+        </div>
+        <div class="home-item" (click)="navigateTo('episodes')">
+            <b>Episodes:</b>
+            <p>Shows the adventures of Rick and Morty</p>
+            <img class="home-item-img" src="../../assets/003-gun.png" />
+        </div>
+        <div class="home-item" (click)="navigateTo('connect')">
+            <b>Connect:</b>
+            <p>Connect to the other universes!</p>
+            <img class="home-item-img" src="../../assets/006-astrofisica.png" />
+        </div>
+    </div>
 </div>
