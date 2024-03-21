@@ -1,0 +1,10 @@
+.nav{
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    background-color: #737171;
+}
+
+.nav-item{
+    margin:6px
+}
