@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: flex-end;
     background-color: #272727;
-    margin: 0px
+    margin: 0px;
+    width:100%
 }
 
 .nav-item-container {
@@ -34,4 +35,10 @@
 
 .nav-logo:hover {
     cursor: pointer;
+}
+
+.feature-home {
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
 }
