@@ -2,7 +2,7 @@
     [infiniteScrollThrottle]="1000" (scrolled)="emitLoadMore(paginator)" [scrollWindow]="false">
 
     <!-- Character List Template -->
-    <ng-container *ngIf="mode == 'character'">
+    <ng-container *ngIf="mode == ScrollMode.CHARACTER || mode == ScrollMode.EP_CHAR">
         <div class="list-item"
             *ngFor="let char of paginator.items | orderBy:sortDirection:sortTerm | filterBy:filterObject"
             (click)="navigateToDetails(char.id)">
@@ -20,7 +20,7 @@
     </ng-container>
 
     <!-- Episode List Template -->
-    <ng-container *ngIf="mode == 'episode'">
+    <ng-container *ngIf="mode == ScrollMode.EPISODE">
         <div class="list-item" *ngFor="let ep of paginator.items"
             (click)="navigateToDetails(ep.id)">
             <div class="list-item-name">

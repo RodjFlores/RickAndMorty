@@ -25,7 +25,7 @@ export class RickandmortyapiService {
 
   /**
    * 
-   * @returns An observable of characters
+   * @returns An observable of characters with paging info
    */
   public getCharacters(page = 1): Observable<any> {
     return this.http.get(
@@ -44,6 +44,22 @@ export class RickandmortyapiService {
       );
   }
 
+    /**
+   * 
+   * @returns An observable of characters with paging info
+   */
+    public getCharactersByMultiIds(idArray:number[]): Observable<any> {
+      return this.http.get(
+        `${this.baseUrl}character/${idArray}`).pipe(
+          map((response: any) => ({
+            items: response,
+            page: 1,
+            hasMorePages: false
+          })),
+          catchError(this.handleError)
+        );
+    }
+
   /**
   * 
   * @returns A Charater's details
@@ -55,6 +71,11 @@ export class RickandmortyapiService {
       );
   }
 
+  /**
+   * 
+   * @param page 
+   * @returns An observable of episodes with paging info
+   */
   public getEpisodes(page = 1){
     return this.http.get(
       `${this.baseUrl}episode`,
@@ -71,6 +92,23 @@ export class RickandmortyapiService {
         catchError(this.handleError)
       );
   }
+
+  /**
+  * 
+  * @returns A Charater's details
+  */
+    public getEpisode(id: string): Observable<any> {
+      return this.http.get(
+        `${this.baseUrl}episode/${id}`).pipe(
+          map((res:any) => {
+            const charIds = res.characters.map((c:string) => {
+              return c.split('/').pop()
+            })
+            return {...res, characters: charIds}
+          }),
+          catchError(this.handleError)
+        );
+    }
 
   /**
    * Standard Error handler for http requests

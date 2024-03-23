@@ -14,6 +14,7 @@ export class AppComponent {
     this.router.events.subscribe(
       (event: any) => {
         if (event instanceof NavigationEnd) {
+          console.log(event)
           this.url = this.router.url;
         }
       }

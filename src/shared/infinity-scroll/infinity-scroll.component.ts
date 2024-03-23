@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SortDirection, SortTerm } from '../../main/characters/character-list/character-list.component';
+import { ScrollMode } from '../models/ScrollMode.enum';
 
 @Component({
   selector: 'app-infinity-scroll',
@@ -10,7 +11,7 @@ import { SortDirection, SortTerm } from '../../main/characters/character-list/ch
 })
 export class InfinityScrollComponent {
   @Input() paginator$:Observable<any>;
-  @Input() mode:string = 'character';
+  @Input() mode:string = ScrollMode.CHARACTER;
   @Input() sortDirection:SortDirection = SortDirection.ASC
   @Input() sortTerm:SortTerm|null = null
   @Input() filterObject = {
@@ -20,6 +21,8 @@ export class InfinityScrollComponent {
   }
   @Output() loadMore  = new EventEmitter<any>();
 
+  public ScrollMode = ScrollMode
+
   constructor(public router: Router,private route:ActivatedRoute){
   }
 
@@ -28,6 +31,13 @@ export class InfinityScrollComponent {
   }
 
   public navigateToDetails(id:string){
-    this.router.navigate([`view/${id}`], { relativeTo: this.route })
+
+    if(this.mode === ScrollMode.EP_CHAR){
+      console.log('EP_CHAR!')
+      this.router.navigate([`characters/view/${id}`])
+      
+    }else{
+      this.router.navigate([`view/${id}`], { relativeTo: this.route })
+    }
   }
 }

@@ -1,0 +1,24 @@
+.scroller{
+    width:70%;
+    margin-right: 12px;
+}
+@media(max-width:1024px) {
+    .detail-container {
+        flex-direction: column;
+    }
+
+    .detail-left {
+        height: 60%;
+        width: 85%;
+    }
+    
+    .detail-right {
+        height: 25%;
+        width: 85%;
+    }
+
+    .scroller{
+        width:90%;
+        margin-bottom:12px;
+    }
+}
