@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RickandmortyapiService } from '../../../services/rickandmortyapi.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Observable, scan, switchMap, tap } from 'rxjs';
+import { Paginator } from '../../../models/Paginator';
 
 @Component({
   selector: 'app-episode-list',
@@ -10,10 +11,10 @@ import { BehaviorSubject, Observable, scan, switchMap, tap } from 'rxjs';
 })
 export class EpisodeListComponent {
 
-  public episodes$:Observable<any>
+  public episodes$:Observable<Paginator>
 
     // Observable Data 
-    public paginator$: Observable<any>;
+    public paginator$: Observable<Paginator>;
     public loading$ = new BehaviorSubject(true);
     private page$ = new BehaviorSubject(1);
 
@@ -21,7 +22,7 @@ export class EpisodeListComponent {
     this.paginator$= this.loadEpisodes()
   }
 
-  private loadEpisodes(): Observable<any> {
+  private loadEpisodes(): Observable<Paginator> {
     return this.page$.pipe(
       tap(() => this.loading$.next(true)),
       switchMap((page) => this.api.getEpisodes(page)),
@@ -30,7 +31,7 @@ export class EpisodeListComponent {
     );
   }
 
-  private updatePaginator(accumulator: any, value: any): any {
+  private updatePaginator(accumulator: Paginator, value: Paginator): Paginator {
     if (value.page === 1) {
       return value;
     }
@@ -42,7 +43,7 @@ export class EpisodeListComponent {
     return {...accumulator};
   }
 
-  public loadMoreEpisodes(paginator:any) {
+  public loadMoreEpisodes(paginator:Paginator) {
     if (!paginator.hasMorePages) {
       return;
     }

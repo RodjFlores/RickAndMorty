@@ -1,6 +1,10 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, throwError } from 'rxjs';
+import { Observable, catchError, map, tap, throwError } from 'rxjs';
+import { Paginator } from '../models/Paginator';
+import { Character } from '../models/Character';
+import { Episode } from '../models/Episode';
+import { ApiResponse } from '../models/ApiResponse';
 
 export interface RickAndMortyApiResponse {
   info: {
@@ -27,15 +31,15 @@ export class RickandmortyapiService {
    * 
    * @returns An observable of characters with paging info
    */
-  public getCharacters(page = 1): Observable<any> {
-    return this.http.get(
+  public getCharacters(page = 1): Observable<Paginator> {
+    return this.http.get<ApiResponse>(
       `${this.baseUrl}character`,
       {
         params: {
           page: page
         }
       }).pipe(
-        map((response: any) => ({
+        map((response) => ({
           items: response.results,
           page: page,
           hasMorePages: page === 42 ? false : true
@@ -48,10 +52,11 @@ export class RickandmortyapiService {
    * 
    * @returns An observable of characters with paging info
    */
-    public getCharactersByMultiIds(idArray:number[]): Observable<any> {
-      return this.http.get(
+    public getCharactersByMultiIds(idArray:string[]): Observable<Paginator> {
+      return this.http.get<Character[]>(
         `${this.baseUrl}character/${idArray}`).pipe(
-          map((response: any) => ({
+          tap(console.log),
+          map((response) => ({
             items: response,
             page: 1,
             hasMorePages: false
@@ -64,8 +69,8 @@ export class RickandmortyapiService {
   * 
   * @returns A Charater's details
   */
-  public getCharacter(id: string): Observable<any> {
-    return this.http.get(
+  public getCharacter(id: string): Observable<Character> {
+    return this.http.get<Character>(
       `${this.baseUrl}character/${id}`).pipe(
         catchError(this.handleError)
       );
@@ -76,15 +81,15 @@ export class RickandmortyapiService {
    * @param page 
    * @returns An observable of episodes with paging info
    */
-  public getEpisodes(page = 1){
-    return this.http.get(
+  public getEpisodes(page = 1): Observable<Paginator>{
+    return this.http.get<ApiResponse>(
       `${this.baseUrl}episode`,
       {
         params: {
           page: page
         }
       }).pipe(
-        map((response: any) => ({
+        map((response) => ({
           items: response.results,
           page: page,
           hasMorePages: page === 3 ? false : true
@@ -97,10 +102,10 @@ export class RickandmortyapiService {
   * 
   * @returns A Charater's details
   */
-    public getEpisode(id: string): Observable<any> {
-      return this.http.get(
+    public getEpisode(id: string): Observable<Episode> {
+      return this.http.get<Episode>(
         `${this.baseUrl}episode/${id}`).pipe(
-          map((res:any) => {
+          map((res) => {
             const charIds = res.characters.map((c:string) => {
               return c.split('/').pop()
             })

@@ -3,7 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable, of, switchMap, tap } from 'rxjs';
 import { RickandmortyapiService } from '../../../services/rickandmortyapi.service';
 import { Location } from '@angular/common';
-import { ScrollMode } from '../../../shared/models/ScrollMode.enum';
+import { ScrollMode } from '../../../enums/ScrollMode.enum';
+import { Paginator } from '../../../models/Paginator';
+import { Episode } from '../../../models/Episode';
 
 @Component({
   selector: 'app-episode-view',
@@ -12,8 +14,8 @@ import { ScrollMode } from '../../../shared/models/ScrollMode.enum';
 })
 export class EpisodeViewComponent {
   public ScrollMode = ScrollMode
-  public episode$: Observable<any>;
-  public characterPaginator$: Observable<any>
+  public episode$: Observable<Episode>;
+  public characterPaginator$: Observable<Paginator>
   constructor(private route: ActivatedRoute, private api: RickandmortyapiService, private location: Location) {
 
   }

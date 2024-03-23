@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RickandmortyapiService } from '../../../services/rickandmortyapi.service';
 import { Observable } from 'rxjs';
 import { Location } from '@angular/common';
+import { Character } from '../../../models/Character';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Location } from '@angular/common';
 })
 export class CharacterViewComponent implements OnInit {
 
-  public character$: Observable<any>;
+  public character$: Observable<Character>;
 
   constructor(private route: ActivatedRoute, private api: RickandmortyapiService, private location: Location) {
 

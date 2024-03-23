@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SortDirection, SortTerm } from '../main/characters/character-list/character-list.component';
+import { SortDirection, SortTerm } from '../enums/SortAndFilter.enum';
+import { Character } from '../models/Character';
 
 @Pipe({
   name: 'orderBy',
@@ -7,7 +8,7 @@ import { SortDirection, SortTerm } from '../main/characters/character-list/chara
 })
 export class OrderByPipe implements PipeTransform {
 
-  transform(value: any[], direction: string, sortTerm: any): any[] {
+  transform(value: Character[], direction: SortDirection, sortTerm: SortTerm): Character[] {
     if (sortTerm === null) {
       return value
     }
@@ -16,7 +17,7 @@ export class OrderByPipe implements PipeTransform {
       case SortTerm.STATUS:
       case SortTerm.NAME:
       case SortTerm.SPECIES:
-        return value.sort((a:string, b:string) => {
+        return value.sort((a:Character, b:Character) => {
           const loweredA = a[sortTerm].toLocaleLowerCase()
           const loweredB = b[sortTerm].toLocaleLowerCase()
           if (loweredA > loweredB) {

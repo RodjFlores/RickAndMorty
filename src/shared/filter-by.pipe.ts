@@ -1,4 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { FilterObject } from '../models/FilterObject';
+import { Character } from '../models/Character';
 
 @Pipe({
   name: 'filterBy',
@@ -6,9 +8,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterByPipe implements PipeTransform {
 
-  transform(value: any, filterObject: any): any {
+  transform(value: Character[], filterObject: FilterObject): Character[] {
     let newValue = [...value]
-    newValue = value.filter((item:any)=> {
+    newValue = value.filter((item:Character)=> {
       const loweredName = item.name.toLocaleLowerCase()
       const loweredStatus = item.status.toLocaleLowerCase()
       const loweredSpecies = item.species.toLocaleLowerCase()
@@ -29,7 +31,15 @@ export class FilterByPipe implements PipeTransform {
     if(newValue.length === 0){
       return [{
         image: 'https://i.imgur.com/CauIpSw.png',
-        name: 'ERROR: DOES NOT EXIST!'
+        name: 'ERROR: DOES NOT EXIST!',
+        id:99999999,
+        species:'xxx',
+        status:'404',
+        type:null,
+        origin:null,
+        location:null,
+        episode:[],
+        gender:'x'
       }]
     }
     return newValue;

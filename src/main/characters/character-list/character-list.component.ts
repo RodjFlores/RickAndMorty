@@ -2,24 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { RickAndMortyApiResponse, RickandmortyapiService } from '../../../services/rickandmortyapi.service';
 import { BehaviorSubject, Observable, map, scan, switchMap, tap } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-
-export enum SortDirection{
-  ASC = 'asc',
-  DESC = 'desc'
-}
-
-export enum SortTerm{
-  NAME = 'name',
-  STATUS = 'status',
-  SPECIES = 'species',
-  EPISODES = 'episodes'
-}
-
-export enum CharacterStatus{
-  UNKNOWN = 'unknown',
-  DEAD = 'dead',
-  ALIVE = 'alive',
-}
+import { Paginator } from '../../../models/Paginator';
+import { SortDirection, SortTerm, CharacterStatus } from '../../../enums/SortAndFilter.enum';
+import { FilterObject } from '../../../models/FilterObject';
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
@@ -30,16 +15,16 @@ export class CharacterListComponent {
   public SortDirection = SortDirection;
   public SortTerm = SortTerm;
   public sortDirection:SortDirection = SortDirection.ASC
-  public sortTerm:SortTerm|null = null
+  public sortTerm:SortTerm = null
   // Filtering Variables
   public CharacterStatus = CharacterStatus;
-  public filterObject = {
+  public filterObject:FilterObject = {
     name:null,
     status:null,
     species:null,
   }
   // Observable Data 
-  public paginator$: Observable<any>;
+  public paginator$: Observable<Paginator>;
   public loading$ = new BehaviorSubject(true);
   private page$ = new BehaviorSubject(1);
 
@@ -47,7 +32,7 @@ export class CharacterListComponent {
     this.paginator$= this.loadCharacter()
   }
   
-  private loadCharacter(): Observable<any> {
+  private loadCharacter(): Observable<Paginator> {
     return this.page$.pipe(
       tap(() => this.loading$.next(true)),
       switchMap((page) => this.api.getCharacters(page)),
@@ -56,7 +41,7 @@ export class CharacterListComponent {
     );
   }
 
-  private updatePaginator(accumulator: any, value: any): any {
+  private updatePaginator(accumulator: Paginator, value: Paginator): Paginator {
     if (value.page === 1) {
       return value;
     }
@@ -68,7 +53,7 @@ export class CharacterListComponent {
     return {...accumulator};
   }
 
-  public loadMoreCharacters(paginator:any) {
+  public loadMoreCharacters(paginator:Paginator) {
     if (!paginator.hasMorePages) {
       return;
     }
