@@ -1,25 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrderByPipe } from './order-by.pipe';
-import { SortByPipe } from './sort-by.pipe';
+import { FilterByPipe } from './filter-by.pipe';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { InfinityScrollComponent } from './infinity-scroll/infinity-scroll.component';
 
 
 
 @NgModule({
   declarations: [
     OrderByPipe,
-    SortByPipe
+    FilterByPipe,
+    InfinityScrollComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    InfiniteScrollModule
   ],
   exports:[
     OrderByPipe,
-    SortByPipe
+    FilterByPipe,
+    InfiniteScrollModule,
+    InfinityScrollComponent
   ],
   providers:[
     OrderByPipe,
-    SortByPipe
+    FilterByPipe,
   ]
 })
 export class SharedModule { }

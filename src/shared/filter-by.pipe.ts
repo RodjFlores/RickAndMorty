@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'sortBy',
+  name: 'filterBy',
   pure: false
 })
-export class SortByPipe implements PipeTransform {
+export class FilterByPipe implements PipeTransform {
 
   transform(value: any, filterObject: any): any {
     let newValue = [...value]
@@ -25,6 +25,13 @@ export class SortByPipe implements PipeTransform {
 
       return true;
     });
+
+    if(newValue.length === 0){
+      return [{
+        image: 'https://i.imgur.com/CauIpSw.png',
+        name: 'ERROR: DOES NOT EXIST!'
+      }]
+    }
     return newValue;
   }
 

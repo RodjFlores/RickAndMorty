@@ -35,25 +35,42 @@ export class RickandmortyapiService {
           page: page
         }
       }).pipe(
-        map((response:any) => ({
+        map((response: any) => ({
           items: response.results,
           page: page,
           hasMorePages: page === 42 ? false : true
         })),
-      catchError(this.handleError)
-    );
-  }
-
-    /**
-   * 
-   * @returns A Charater's details
-   */
-    public getCharacter(id:string): Observable<any> {
-      return this.http.get(
-        `${this.baseUrl}character/${id}`).pipe(
         catchError(this.handleError)
       );
-    }
+  }
+
+  /**
+  * 
+  * @returns A Charater's details
+  */
+  public getCharacter(id: string): Observable<any> {
+    return this.http.get(
+      `${this.baseUrl}character/${id}`).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  public getEpisodes(page = 1){
+    return this.http.get(
+      `${this.baseUrl}episode`,
+      {
+        params: {
+          page: page
+        }
+      }).pipe(
+        map((response: any) => ({
+          items: response.results,
+          page: page,
+          hasMorePages: page === 3 ? false : true
+        })),
+        catchError(this.handleError)
+      );
+  }
 
   /**
    * Standard Error handler for http requests

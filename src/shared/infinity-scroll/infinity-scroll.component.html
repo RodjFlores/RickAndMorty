@@ -1,0 +1,38 @@
+<div class="list-results" [ngStyle]="{'height': mode === 'episode' ? '70vh' : '55vh'}" *ngIf="paginator$ | async as paginator" infiniteScroll [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="1000" (scrolled)="emitLoadMore(paginator)" [scrollWindow]="false">
+
+    <!-- Character List Template -->
+    <ng-container *ngIf="mode == 'character'">
+        <div class="list-item"
+            *ngFor="let char of paginator.items | orderBy:sortDirection:sortTerm | filterBy:filterObject"
+            (click)="navigateToDetails(char.id)">
+            <img class="list-item-img" src="{{char.image}}" />
+            <div class="list-item-name">
+                <h2>{{char.name.length > 24 ? char.name + '...' : char.name}}</h2>
+            </div>
+            <div class="list-item-info">
+                <b>Status:</b> {{char.status | titlecase}}<br />
+                <b>Species:</b> {{char.species}}<br />
+                <b>Episodes:</b> {{char.episode.length}}
+            </div>
+            <br>
+        </div>
+    </ng-container>
+
+    <!-- Episode List Template -->
+    <ng-container *ngIf="mode == 'episode'">
+        <div class="list-item" *ngFor="let ep of paginator.items"
+            (click)="navigateToDetails(ep.id)">
+            <div class="list-item-name">
+                <h2>{{ep.name.length > 24 ? ep.name + '...' : ep.name}}</h2>
+            </div>
+            <div class="list-item-info" style="width: 240px">
+                <b>Air Date:</b> {{ep.air_date}}<br/>
+                <b>Season:</b> {{ep.episode.substring(0,2)}}<br />
+                <b>Episode:</b> {{ep.episode.substring(3)}}<br />
+            </div>
+        </div>
+    </ng-container>
+
+    <h4 *ngIf="!paginator.hasMorePages">You have reached the end of the universe!</h4>
+</div>

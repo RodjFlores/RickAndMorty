@@ -45,23 +45,14 @@
             </button>
         </div>
 
-        <div class="list-results" *ngIf="paginator$ | async as paginator" infiniteScroll [infiniteScrollDistance]="2"
-            [infiniteScrollThrottle]="1000" (scrolled)="loadMoreProducts(paginator)" [scrollWindow]="false">
-            <div class="list-item" *ngFor="let char of paginator.items | orderBy:sortDirection:sortTerm | sortBy:filterObject" (click)="navigateToDetails(char.id)">
-                <img class="list-item-img" src="{{char.image}}" />
-                <div class="list-item-name">
-                    <h2>{{char.name.length > 24 ? char.name + '...' : char.name}}</h2>
-                </div>
-                <div class="list-item-info">
-                    <b>Status:</b> {{char.status | titlecase}}<br />
-                    <b>Species:</b> {{char.species}}<br />
-                    <b>Episodes:</b> {{char.episode.length}}
-                </div>
-
-                <br>
-            </div>
-            <h4 *ngIf="!paginator.hasMorePages">You have reached the end of the universe!</h4>
-        </div>
+        <app-infinity-scroll 
+            [paginator$]="paginator$" 
+            [sortDirection]="sortDirection"
+            [sortTerm]="sortTerm"
+            [filterObject]="filterObject"
+            (loadMore)="loadMoreCharacters($event)"
+        >
+        </app-infinity-scroll>
         <h4 *ngIf="loading$ | async">Loading...</h4>
     </div>
 </div>

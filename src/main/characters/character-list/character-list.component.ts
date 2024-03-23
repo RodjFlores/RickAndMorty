@@ -68,7 +68,7 @@ export class CharacterListComponent {
     return {...accumulator};
   }
 
-  public loadMoreProducts(paginator:any) {
+  public loadMoreCharacters(paginator:any) {
     if (!paginator.hasMorePages) {
       return;
     }
