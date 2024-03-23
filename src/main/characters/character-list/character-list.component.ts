@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RickAndMortyApiResponse, RickandmortyapiService } from '../../../services/rickandmortyapi.service';
 import { BehaviorSubject, Observable, map, scan, switchMap, tap } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export enum SortDirection{
   ASC = 'asc',
@@ -42,7 +43,7 @@ export class CharacterListComponent {
   public loading$ = new BehaviorSubject(true);
   private page$ = new BehaviorSubject(1);
 
-  constructor(private api:RickandmortyapiService){
+  constructor(private api:RickandmortyapiService,public router: Router,private route:ActivatedRoute){
     this.paginator$= this.loadCharacter()
   }
   
@@ -80,5 +81,9 @@ export class CharacterListComponent {
       status:null,
       species:null,
     }
+  }
+
+  public navigateToDetails(id:string){
+    this.router.navigate([`view/${id}`], { relativeTo: this.route })
   }
 }

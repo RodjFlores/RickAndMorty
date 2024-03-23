@@ -44,6 +44,17 @@ export class RickandmortyapiService {
     );
   }
 
+    /**
+   * 
+   * @returns A Charater's details
+   */
+    public getCharacter(id:string): Observable<any> {
+      return this.http.get(
+        `${this.baseUrl}character/${id}`).pipe(
+        catchError(this.handleError)
+      );
+    }
+
   /**
    * Standard Error handler for http requests
    * @param error Error from Http Request

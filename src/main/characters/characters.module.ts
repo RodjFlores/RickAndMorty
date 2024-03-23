@@ -6,10 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
+import { CharacterViewComponent } from './character-view/character-view.component';
 
 @NgModule({
   declarations: [
-    CharacterListComponent
+    CharacterListComponent,
+    CharacterViewComponent
   ],
   imports: [
     CommonModule,
