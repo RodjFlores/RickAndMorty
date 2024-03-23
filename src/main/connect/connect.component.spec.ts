@@ -8,7 +8,8 @@ describe('ConnectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ConnectComponent]
+      declarations: [],
+      imports:[ConnectComponent]
     })
     .compileComponents();
     
@@ -19,5 +20,13 @@ describe('ConnectComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should push a message to history', () => {
+    component.message = 'test'
+    component.sendMessage()
+    expect(component.connectionHistory.length).toBe(1);
+    expect(component.connectionHistory[0]).toEqual({from:'me',message:'test'});
+
   });
 });

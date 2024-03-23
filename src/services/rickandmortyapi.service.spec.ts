@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RickandmortyapiService } from './rickandmortyapi.service';
+import { RickAndMortyApiService } from './rickandmortyapi.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-describe('RickandmortyapiService', () => {
-  let service: RickandmortyapiService;
+describe('RickAndMortyApiService', () => {
+  let service: RickAndMortyApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule, RouterModule.forRoot([]),]
     });
-    service = TestBed.inject(RickandmortyapiService);
+    service = TestBed.inject(RickAndMortyApiService);
   });
 
   it('should be created', () => {

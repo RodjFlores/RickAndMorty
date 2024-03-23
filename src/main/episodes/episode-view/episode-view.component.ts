@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, of, switchMap, tap } from 'rxjs';
-import { RickandmortyapiService } from '../../../services/rickandmortyapi.service';
+import { RickAndMortyApiService } from '../../../services/rickandmortyapi.service';
 import { Location } from '@angular/common';
 import { ScrollMode } from '../../../enums/ScrollMode.enum';
 import { Paginator } from '../../../models/Paginator';
@@ -16,7 +16,7 @@ export class EpisodeViewComponent implements OnInit{
   public ScrollMode = ScrollMode
   public episode$: Observable<Episode>;
   public characterPaginator$: Observable<Paginator>
-  constructor(private route: ActivatedRoute, private api: RickandmortyapiService, private location: Location) {
+  constructor(private route: ActivatedRoute, private api: RickAndMortyApiService, private location: Location) {
 
   }
 

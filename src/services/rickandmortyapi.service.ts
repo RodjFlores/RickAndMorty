@@ -5,21 +5,10 @@ import { Paginator } from '../models/Paginator';
 import { Character } from '../models/Character';
 import { Episode } from '../models/Episode';
 import { ApiResponse } from '../models/ApiResponse';
-
-export interface RickAndMortyApiResponse {
-  info: {
-    count: number,
-    next: string | null,
-    pages: number,
-    prev: string | null
-  },
-  result: Object[]
-}
-
 @Injectable({
   providedIn: 'root'
 })
-export class RickandmortyapiService {
+export class RickAndMortyApiService {
 
   private baseUrl = 'https://rickandmortyapi.com/api/'
   constructor(

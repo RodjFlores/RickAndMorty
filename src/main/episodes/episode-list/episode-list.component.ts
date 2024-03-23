@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RickandmortyapiService } from '../../../services/rickandmortyapi.service';
+import { RickAndMortyApiService } from '../../../services/rickandmortyapi.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Observable, scan, switchMap, tap } from 'rxjs';
 import { Paginator } from '../../../models/Paginator';
@@ -17,7 +17,7 @@ export class EpisodeListComponent {
     public loading$ = new BehaviorSubject(true);
     private page$ = new BehaviorSubject(1);
 
-  constructor(private api:RickandmortyapiService,public router: Router,private route:ActivatedRoute){
+  constructor(private api:RickAndMortyApiService,public router: Router,private route:ActivatedRoute){
     this.paginator$= this.loadEpisodes()
   }
 

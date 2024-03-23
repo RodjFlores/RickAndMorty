@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RickandmortyapiService } from '../../../services/rickandmortyapi.service';
+import { RickAndMortyApiService } from '../../../services/rickandmortyapi.service';
 import { Observable, tap } from 'rxjs';
 import { Location } from '@angular/common';
 import { Character } from '../../../models/Character';
@@ -15,7 +15,7 @@ export class CharacterViewComponent implements OnInit{
 
   public character$: Observable<Character>;
 
-  constructor(private route: ActivatedRoute, private api: RickandmortyapiService, private location: Location) {
+  constructor(private route: ActivatedRoute, private api: RickAndMortyApiService, private location: Location) {
 
   }
 
