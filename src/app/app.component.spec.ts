@@ -26,7 +26,7 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('RickAndMorty');
   });
 
-  it('should render title', () => {
+  it('should render router links', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
