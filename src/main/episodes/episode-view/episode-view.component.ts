@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, of, switchMap, tap } from 'rxjs';
 import { RickandmortyapiService } from '../../../services/rickandmortyapi.service';
@@ -12,7 +12,7 @@ import { Episode } from '../../../models/Episode';
   templateUrl: './episode-view.component.html',
   styleUrl: './episode-view.component.css'
 })
-export class EpisodeViewComponent {
+export class EpisodeViewComponent implements OnInit{
   public ScrollMode = ScrollMode
   public episode$: Observable<Episode>;
   public characterPaginator$: Observable<Paginator>
@@ -25,13 +25,14 @@ export class EpisodeViewComponent {
       if (params['id']) {
         this.episode$ = this.api.getEpisode(params['id']).pipe(switchMap(res => {
           this.characterPaginator$ = this.api.getCharactersByMultiIds(res.characters)
-          console.log(this.characterPaginator$)
           return of(res)
         }));
       }
     });
   }
-
+  /**
+   * Navigates to the previous page.
+   */
   public navigateBack() {
     this.location.back()
   }

@@ -32,10 +32,13 @@ export class InfinityScrollComponent {
     this.loadMore.emit(value);
   }
 
+  /**
+   * Navigates to the model's details view
+   * @param id 
+   */
   public navigateToDetails(id:number){
 
     if(this.mode === ScrollMode.EP_CHAR){
-      console.log('EP_CHAR!')
       this.router.navigate([`characters/view/${id}`])
       
     }else{

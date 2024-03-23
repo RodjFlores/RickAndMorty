@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RickandmortyapiService } from '../../../services/rickandmortyapi.service';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Location } from '@angular/common';
 import { Character } from '../../../models/Character';
 
@@ -11,7 +11,7 @@ import { Character } from '../../../models/Character';
   templateUrl: './character-view.component.html',
   styleUrl: './character-view.component.css'
 })
-export class CharacterViewComponent implements OnInit {
+export class CharacterViewComponent implements OnInit{
 
   public character$: Observable<Character>;
 
@@ -26,7 +26,9 @@ export class CharacterViewComponent implements OnInit {
       }
     });
   }
-
+  /**
+   * Navigates back to previous page.
+   */
   public navigateBack(){
     this.location.back()
   }

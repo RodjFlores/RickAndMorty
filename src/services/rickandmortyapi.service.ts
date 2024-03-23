@@ -48,26 +48,25 @@ export class RickandmortyapiService {
       );
   }
 
-    /**
-   * 
-   * @returns An observable of characters with paging info
-   */
-    public getCharactersByMultiIds(idArray:string[]): Observable<Paginator> {
-      return this.http.get<Character[]>(
-        `${this.baseUrl}character/${idArray}`).pipe(
-          tap(console.log),
-          map((response) => ({
-            items: response,
-            page: 1,
-            hasMorePages: false
-          })),
-          catchError(this.handleError)
-        );
-    }
+  /**
+  * @param idArray Ids of characters to search by 
+  * @returns An observable of characters with paging info 
+  */
+  public getCharactersByMultiIds(idArray: string[]): Observable<Paginator> {
+    return this.http.get<Character[]>(
+      `${this.baseUrl}character/${idArray}`).pipe(
+        map((response) => ({
+          items: response,
+          page: 1,
+          hasMorePages: false
+        })),
+        catchError(this.handleError)
+      );
+  }
 
   /**
   * 
-  * @returns A Charater's details
+  * @returns A single Charater's details
   */
   public getCharacter(id: string): Observable<Character> {
     return this.http.get<Character>(
@@ -81,7 +80,7 @@ export class RickandmortyapiService {
    * @param page 
    * @returns An observable of episodes with paging info
    */
-  public getEpisodes(page = 1): Observable<Paginator>{
+  public getEpisodes(page = 1): Observable<Paginator> {
     return this.http.get<ApiResponse>(
       `${this.baseUrl}episode`,
       {
@@ -100,20 +99,20 @@ export class RickandmortyapiService {
 
   /**
   * 
-  * @returns A Charater's details
+  * @returns A single Episode's details
   */
-    public getEpisode(id: string): Observable<Episode> {
-      return this.http.get<Episode>(
-        `${this.baseUrl}episode/${id}`).pipe(
-          map((res) => {
-            const charIds = res.characters.map((c:string) => {
-              return c.split('/').pop()
-            })
-            return {...res, characters: charIds}
-          }),
-          catchError(this.handleError)
-        );
-    }
+  public getEpisode(id: string): Observable<Episode> {
+    return this.http.get<Episode>(
+      `${this.baseUrl}episode/${id}`).pipe(
+        map((res) => {
+          const charIds = res.characters.map((c: string) => {
+            return c.split('/').pop()
+          })
+          return { ...res, characters: charIds }
+        }),
+        catchError(this.handleError)
+      );
+  }
 
   /**
    * Standard Error handler for http requests

@@ -52,7 +52,12 @@ export class CharacterListComponent {
 
     return {...accumulator};
   }
-
+  
+  /**
+   * Triggers the updating of the paginator on scroll
+   * @param paginator 
+   * @returns 
+   */
   public loadMoreCharacters(paginator:Paginator) {
     if (!paginator.hasMorePages) {
       return;
@@ -60,15 +65,14 @@ export class CharacterListComponent {
     this.page$.next(paginator.page + 1);
   }
 
+  /**
+   * Clears the current Filter Object for data display.
+   */
   public resetFilters(){
     this.filterObject = {
       name:null,
       status:null,
       species:null,
     }
-  }
-
-  public navigateToDetails(id:string){
-    this.router.navigate([`view/${id}`], { relativeTo: this.route })
   }
 }

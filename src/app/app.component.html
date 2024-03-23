@@ -1,7 +1,7 @@
 <nav class="nav" *ngIf="url !== '/home'">
   <img class="nav-logo" src="../assets/rick-and-morty-logo.png" [routerLink]="['/home']" />
-  <h4 class="nav-item" [routerLink]="['/characters']">Characters</h4>
-  <h4 class="nav-item" [routerLink]="['/episodes']">Episodes</h4>
-  <h4 class="nav-item" [routerLink]="['/connect']">Connect</h4>
+  <h4 id="characterLink" class="nav-item" [routerLink]="['/characters']">Characters</h4>
+  <h4 id="episodeLink" class="nav-item" [routerLink]="['/episodes']">Episodes</h4>
+  <h4 id="connectLink" class="nav-item" [routerLink]="['/connect']">Connect</h4>
 </nav>
 <router-outlet />

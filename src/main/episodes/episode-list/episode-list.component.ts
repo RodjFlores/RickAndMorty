@@ -11,9 +11,8 @@ import { Paginator } from '../../../models/Paginator';
 })
 export class EpisodeListComponent {
 
-  public episodes$:Observable<Paginator>
-
     // Observable Data 
+    public episodes$:Observable<Paginator>
     public paginator$: Observable<Paginator>;
     public loading$ = new BehaviorSubject(true);
     private page$ = new BehaviorSubject(1);
@@ -42,15 +41,15 @@ export class EpisodeListComponent {
 
     return {...accumulator};
   }
-
+  /**
+   * Triggers the updating of the paginator on scroll
+   * @param paginator 
+   * @returns 
+   */
   public loadMoreEpisodes(paginator:Paginator) {
     if (!paginator.hasMorePages) {
       return;
     }
     this.page$.next(paginator.page + 1);
-  }
-
-  public navigateToDetails(id:string){
-    this.router.navigate([`view/${id}`], { relativeTo: this.route })
   }
 }

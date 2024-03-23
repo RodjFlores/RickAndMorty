@@ -8,7 +8,7 @@
             (click)="navigateToDetails(char.id)">
             <img class="list-item-img" src="{{char.image}}" />
             <div class="list-item-name">
-                <h2>{{char.name.length > 24 ? char.name.substring(0,24) + '...' : char.name}}</h2>
+                <h2 id="char-name">{{char.name.length > 24 ? char.name.substring(0,24) + '...' : char.name}}</h2>
             </div>
             <div class="list-item-info">
                 <b>Status:</b> {{char.status | titlecase}}<br />
@@ -24,7 +24,7 @@
         <div class="list-item" *ngFor="let ep of paginator.items"
             (click)="navigateToDetails(ep.id)">
             <div class="list-item-name" style="width: 400px;">
-                <h2>{{ep.name.length > 28 ? ep.name.substring(0,28) + '...' : ep.name}}</h2>
+                <h2 id="ep-name">{{ep.name.length > 28 ? ep.name.substring(0,28) + '...' : ep.name}}</h2>
             </div>
             <div class="list-item-info" style="width: 240px">
                 <b>Air Date:</b> {{ep.air_date}}<br/>
