@@ -3,11 +3,15 @@ import { RickAndMortyApiService } from '../../../services/rickandmortyapi.servic
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Observable, scan, switchMap, tap } from 'rxjs';
 import { Paginator } from '../../../models/Paginator';
+import { AsyncPipe } from '@angular/common';
+import { InfinityScrollComponent } from '../../../shared/infinity-scroll/infinity-scroll.component';
 
 @Component({
-  selector: 'app-episode-list',
-  templateUrl: './episode-list.component.html',
-  styleUrl: './episode-list.component.css',
+    selector: 'app-episode-list',
+    templateUrl: './episode-list.component.html',
+    styleUrl: './episode-list.component.css',
+    standalone: true,
+    imports: [InfinityScrollComponent, AsyncPipe],
 })
 export class EpisodeListComponent {
   // Observable Data

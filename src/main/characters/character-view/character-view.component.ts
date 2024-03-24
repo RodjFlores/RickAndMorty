@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { RickAndMortyApiService } from '../../../services/rickandmortyapi.service';
-import { Observable, tap } from 'rxjs';
-import { Location } from '@angular/common';
+import { Observable } from 'rxjs';
+import { Location, NgStyle, AsyncPipe, TitleCasePipe } from '@angular/common';
 import { Character } from '../../../models/Character';
 
 @Component({
-  selector: 'app-character-view',
-  templateUrl: './character-view.component.html',
-  styleUrl: './character-view.component.css',
+    selector: 'app-character-view',
+    templateUrl: './character-view.component.html',
+    styleUrl: './character-view.component.css',
+    standalone: true,
+    imports: [
+        NgStyle,
+        AsyncPipe,
+        TitleCasePipe,
+    ],
 })
 export class CharacterViewComponent implements OnInit {
   public character$: Observable<Character>;

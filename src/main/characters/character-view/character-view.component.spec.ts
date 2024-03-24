@@ -13,9 +13,8 @@ describe('CharacterViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CharacterViewComponent],
-      imports: [HttpClientModule, RouterModule.forRoot([]), SharedModule],
-    }).compileComponents();
+    imports: [HttpClientModule, RouterModule.forRoot([]), SharedModule, CharacterViewComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(CharacterViewComponent);
     component = fixture.componentInstance;

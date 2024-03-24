@@ -14,9 +14,8 @@ describe('InfinityScrollComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [InfinityScrollComponent],
-      imports: [HttpClientModule, RouterModule.forRoot([]), SharedModule],
-    }).compileComponents();
+    imports: [HttpClientModule, RouterModule.forRoot([]), SharedModule, InfinityScrollComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(InfinityScrollComponent);
     component = fixture.componentInstance;

@@ -5,11 +5,24 @@ import { ScrollMode } from '../../enums/ScrollMode.enum';
 import { Paginator } from '../../models/Paginator';
 import { SortDirection, SortTerm } from '../../enums/SortAndFilter.enum';
 import { FilterObject } from '../../models/FilterObject';
+import { FilterByPipe } from '../filter-by.pipe';
+import { OrderByPipe } from '../order-by.pipe';
+import { NgStyle, AsyncPipe, TitleCasePipe } from '@angular/common';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @Component({
-  selector: 'app-infinity-scroll',
-  templateUrl: './infinity-scroll.component.html',
-  styleUrl: './infinity-scroll.component.css',
+    selector: 'app-infinity-scroll',
+    templateUrl: './infinity-scroll.component.html',
+    styleUrl: './infinity-scroll.component.css',
+    standalone: true,
+    imports: [
+        InfiniteScrollModule,
+        NgStyle,
+        AsyncPipe,
+        TitleCasePipe,
+        OrderByPipe,
+        FilterByPipe,
+    ],
 })
 export class InfinityScrollComponent {
   @Input() paginator$: Observable<Paginator>;

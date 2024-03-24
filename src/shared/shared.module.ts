@@ -6,14 +6,13 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { InfinityScrollComponent } from './infinity-scroll/infinity-scroll.component';
 
 @NgModule({
-  declarations: [OrderByPipe, FilterByPipe, InfinityScrollComponent],
-  imports: [CommonModule, InfiniteScrollModule],
-  exports: [
-    OrderByPipe,
-    FilterByPipe,
-    InfiniteScrollModule,
-    InfinityScrollComponent,
-  ],
-  providers: [OrderByPipe, FilterByPipe],
+    imports: [CommonModule, InfiniteScrollModule, OrderByPipe, FilterByPipe, InfinityScrollComponent],
+    exports: [
+        OrderByPipe,
+        FilterByPipe,
+        InfiniteScrollModule,
+        InfinityScrollComponent,
+    ],
+    providers: [OrderByPipe, FilterByPipe],
 })
 export class SharedModule {}

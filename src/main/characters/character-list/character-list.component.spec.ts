@@ -14,14 +14,14 @@ describe('CharacterListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CharacterListComponent],
-      imports: [
+    imports: [
         HttpClientModule,
         RouterModule.forRoot([]),
         SharedModule,
         FormsModule,
-      ],
-    }).compileComponents();
+        CharacterListComponent,
+    ],
+}).compileComponents();
 
     fixture = TestBed.createComponent(CharacterListComponent);
     component = fixture.componentInstance;

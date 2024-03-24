@@ -6,7 +6,6 @@ import { EpisodeListComponent } from './episode-list/episode-list.component';
 import { SharedModule } from '../../shared/shared.module';
 import { EpisodeViewComponent } from './episode-view/episode-view.component';
 @NgModule({
-  declarations: [EpisodeListComponent, EpisodeViewComponent],
-  imports: [CommonModule, EpisodesRoutingModule, SharedModule],
+    imports: [CommonModule, EpisodesRoutingModule, SharedModule, EpisodeListComponent, EpisodeViewComponent],
 })
 export class EpisodesModule {}
