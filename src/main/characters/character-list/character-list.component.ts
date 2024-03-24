@@ -13,15 +13,11 @@ import { AsyncPipe } from '@angular/common';
 import { InfinityScrollComponent } from '../../../shared/infinity-scroll/infinity-scroll.component';
 import { FormsModule } from '@angular/forms';
 @Component({
-    selector: 'app-character-list',
-    templateUrl: './character-list.component.html',
-    styleUrl: './character-list.component.css',
-    standalone: true,
-    imports: [
-        FormsModule,
-        InfinityScrollComponent,
-        AsyncPipe,
-    ],
+  selector: 'app-character-list',
+  templateUrl: './character-list.component.html',
+  styleUrl: './character-list.component.css',
+  standalone: true,
+  imports: [FormsModule, InfinityScrollComponent, AsyncPipe],
 })
 export class CharacterListComponent {
   // Sorting Variables

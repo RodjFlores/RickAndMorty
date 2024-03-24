@@ -2,48 +2,61 @@
   <div class="list-container">
     <div class="data-controls">
       <div class="controls-container">
-        <label class="control-label">Sort Direction
-        <select name="sortDirection" [(ngModel)]="sortDirection">
-          <option value="{{ SortDirection.ASC }}">Ascending</option>
-          <option value="{{ SortDirection.DESC }}">Descending</option>
-        </select>
-      </label>
+        <label class="control-label"
+          >Sort Direction
+          <select name="sortDirection" [(ngModel)]="sortDirection">
+            <option value="{{ SortDirection.ASC }}">Ascending</option>
+            <option value="{{ SortDirection.DESC }}">Descending</option>
+          </select>
+        </label>
       </div>
       <div class="controls-container">
-        <label class="control-label">Sort Term Name
-        <select name="sortTerm" [(ngModel)]="sortTerm">
-          <option value="{{ SortTerm.NAME }}">Name</option>
-          <option value="{{ SortTerm.STATUS }}">Status</option>
-          <option value="{{ SortTerm.SPECIES }}">Species</option>
-          <option value="{{ SortTerm.EPISODES }}">Episodes</option>
-        </select>
-      </label>
+        <label class="control-label"
+          >Sort Term Name
+          <select name="sortTerm" [(ngModel)]="sortTerm">
+            <option value="{{ SortTerm.NAME }}">Name</option>
+            <option value="{{ SortTerm.STATUS }}">Status</option>
+            <option value="{{ SortTerm.SPECIES }}">Species</option>
+            <option value="{{ SortTerm.EPISODES }}">Episodes</option>
+          </select>
+        </label>
       </div>
     </div>
 
     <div class="data-controls">
       <div class="controls-container">
-        <label class="control-label">Filter Name
-        <input  name="filterName" [(ngModel)]="filterObject.name" type="text" />
-      </label>
+        <label class="control-label"
+          >Filter Name
+          <input
+            name="filterName"
+            [(ngModel)]="filterObject.name"
+            type="text"
+          />
+        </label>
       </div>
 
       <div class="controls-container">
-        <label class="control-label">Filter Species
-        <input name="filterSpecies" [(ngModel)]="filterObject.species" type="text" />
-      </label>
+        <label class="control-label"
+          >Filter Species
+          <input
+            name="filterSpecies"
+            [(ngModel)]="filterObject.species"
+            type="text"
+          />
+        </label>
       </div>
 
       <div class="controls-container">
-        <label class="control-label">Filter Status
-        <select name="filterStatus" [(ngModel)]="filterObject.status">
-          <option value="{{ CharacterStatus.ALIVE }}">Alive</option>
-          <option value="{{ CharacterStatus.DEAD }}">Dead</option>
-          <option value="{{ CharacterStatus.UNKNOWN }}">Unknown</option>
-        </select>
-      </label>
+        <label class="control-label"
+          >Filter Status
+          <select name="filterStatus" [(ngModel)]="filterObject.status">
+            <option value="{{ CharacterStatus.ALIVE }}">Alive</option>
+            <option value="{{ CharacterStatus.DEAD }}">Dead</option>
+            <option value="{{ CharacterStatus.UNKNOWN }}">Unknown</option>
+          </select>
+        </label>
       </div>
-        <button class="button" (click)="resetFilters()">Reset</button>
+      <button class="button" (click)="resetFilters()">Reset</button>
     </div>
 
     <app-infinity-scroll
@@ -52,7 +65,7 @@
       [sortTerm]="sortTerm"
       [filterObject]="filterObject"
       (loadMore)="loadMoreCharacters($event)"
-      >
+    >
     </app-infinity-scroll>
     @if (loading$ | async) {
       <h4>Loading...</h4>

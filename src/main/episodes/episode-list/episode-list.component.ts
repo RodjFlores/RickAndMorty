@@ -7,11 +7,11 @@ import { AsyncPipe } from '@angular/common';
 import { InfinityScrollComponent } from '../../../shared/infinity-scroll/infinity-scroll.component';
 
 @Component({
-    selector: 'app-episode-list',
-    templateUrl: './episode-list.component.html',
-    styleUrl: './episode-list.component.css',
-    standalone: true,
-    imports: [InfinityScrollComponent, AsyncPipe],
+  selector: 'app-episode-list',
+  templateUrl: './episode-list.component.html',
+  styleUrl: './episode-list.component.css',
+  standalone: true,
+  imports: [InfinityScrollComponent, AsyncPipe],
 })
 export class EpisodeListComponent {
   // Observable Data

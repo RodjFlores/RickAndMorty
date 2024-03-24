@@ -11,8 +11,12 @@ describe('EpisodeViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [HttpClientModule, RouterModule.forRoot([]), EpisodeViewComponent],
-}).compileComponents();
+      imports: [
+        HttpClientModule,
+        RouterModule.forRoot([]),
+        EpisodeViewComponent,
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EpisodeViewComponent);
     component = fixture.componentInstance;

@@ -3,7 +3,7 @@
   display: flex;
   justify-content: start;
   align-items: flex-end;
-  overflow: scroll;  
+  overflow: scroll;
 }
 
 .controls-container {
@@ -34,10 +34,10 @@
   width: 180px;
 }
 
-.button:hover{
+.button:hover {
   background-color: #4ba81d;
 }
 
-label{
+label {
   width: 160px;
 }

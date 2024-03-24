@@ -11,18 +11,18 @@ import { NgStyle, AsyncPipe, TitleCasePipe } from '@angular/common';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @Component({
-    selector: 'app-infinity-scroll',
-    templateUrl: './infinity-scroll.component.html',
-    styleUrl: './infinity-scroll.component.css',
-    standalone: true,
-    imports: [
-        InfiniteScrollModule,
-        NgStyle,
-        AsyncPipe,
-        TitleCasePipe,
-        OrderByPipe,
-        FilterByPipe,
-    ],
+  selector: 'app-infinity-scroll',
+  templateUrl: './infinity-scroll.component.html',
+  styleUrl: './infinity-scroll.component.css',
+  standalone: true,
+  imports: [
+    InfiniteScrollModule,
+    NgStyle,
+    AsyncPipe,
+    TitleCasePipe,
+    OrderByPipe,
+    FilterByPipe,
+  ],
 })
 export class InfinityScrollComponent {
   @Input() paginator$: Observable<Paginator>;

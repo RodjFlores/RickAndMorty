@@ -4,7 +4,7 @@
       [paginator$]="paginator$"
       [mode]="'episode'"
       (loadMore)="loadMoreEpisodes($event)"
-      >
+    >
     </app-infinity-scroll>
     @if (loading$ | async) {
       <h4>Loading...</h4>

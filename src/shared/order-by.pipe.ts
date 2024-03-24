@@ -3,9 +3,9 @@ import { SortDirection, SortTerm } from '../enums/SortAndFilter.enum';
 import { Character } from '../models/Character';
 
 @Pipe({
-    name: 'orderBy',
-    pure: false,
-    standalone: true,
+  name: 'orderBy',
+  pure: false,
+  standalone: true,
 })
 export class OrderByPipe implements PipeTransform {
   transform(

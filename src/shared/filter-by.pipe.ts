@@ -3,9 +3,9 @@ import { FilterObject } from '../models/FilterObject';
 import { Character } from '../models/Character';
 
 @Pipe({
-    name: 'filterBy',
-    pure: false,
-    standalone: true,
+  name: 'filterBy',
+  pure: false,
+  standalone: true,
 })
 export class FilterByPipe implements PipeTransform {
   transform(value: Character[], filterObject: FilterObject): Character[] {

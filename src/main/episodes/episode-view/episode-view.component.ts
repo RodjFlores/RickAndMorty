@@ -9,11 +9,11 @@ import { Episode } from '../../../models/Episode';
 import { InfinityScrollComponent } from '../../../shared/infinity-scroll/infinity-scroll.component';
 
 @Component({
-    selector: 'app-episode-view',
-    templateUrl: './episode-view.component.html',
-    styleUrl: './episode-view.component.css',
-    standalone: true,
-    imports: [InfinityScrollComponent, AsyncPipe],
+  selector: 'app-episode-view',
+  templateUrl: './episode-view.component.html',
+  styleUrl: './episode-view.component.css',
+  standalone: true,
+  imports: [InfinityScrollComponent, AsyncPipe],
 })
 export class EpisodeViewComponent implements OnInit {
   public ScrollMode = ScrollMode;

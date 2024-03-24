@@ -6,15 +6,11 @@ import { Location, NgStyle, AsyncPipe, TitleCasePipe } from '@angular/common';
 import { Character } from '../../../models/Character';
 
 @Component({
-    selector: 'app-character-view',
-    templateUrl: './character-view.component.html',
-    styleUrl: './character-view.component.css',
-    standalone: true,
-    imports: [
-        NgStyle,
-        AsyncPipe,
-        TitleCasePipe,
-    ],
+  selector: 'app-character-view',
+  templateUrl: './character-view.component.html',
+  styleUrl: './character-view.component.css',
+  standalone: true,
+  imports: [NgStyle, AsyncPipe, TitleCasePipe],
 })
 export class CharacterViewComponent implements OnInit {
   public character$: Observable<Character>;
