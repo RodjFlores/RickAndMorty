@@ -1,6 +1,9 @@
 .data-controls {
   padding: 3px;
   display: flex;
+  justify-content: start;
+  align-items: flex-end;
+  overflow: scroll;  
 }
 
 .controls-container {
@@ -28,9 +31,14 @@
   text-decoration: none;
   transition: color 100ms;
   vertical-align: baseline;
+  width: 180px;
 }
 
 .button:hover,
 .button:focus {
   background-color: #4ba81d;
+}
+
+label{
+  width: 160px;
 }
