@@ -7,25 +7,28 @@ import { Paginator } from '../../../models/Paginator';
 @Component({
   selector: 'app-episode-list',
   templateUrl: './episode-list.component.html',
-  styleUrl: './episode-list.component.css'
+  styleUrl: './episode-list.component.css',
 })
 export class EpisodeListComponent {
+  // Observable Data
+  public episodes$: Observable<Paginator>;
+  public paginator$: Observable<Paginator>;
+  public loading$ = new BehaviorSubject(true);
+  private page$ = new BehaviorSubject(1);
 
-    // Observable Data 
-    public episodes$:Observable<Paginator>
-    public paginator$: Observable<Paginator>;
-    public loading$ = new BehaviorSubject(true);
-    private page$ = new BehaviorSubject(1);
-
-  constructor(private api:RickAndMortyApiService,public router: Router,private route:ActivatedRoute){
-    this.paginator$= this.loadEpisodes()
+  constructor(
+    private api: RickAndMortyApiService,
+    public router: Router,
+    private route: ActivatedRoute,
+  ) {
+    this.paginator$ = this.loadEpisodes();
   }
 
   private loadEpisodes(): Observable<Paginator> {
     return this.page$.pipe(
       tap(() => this.loading$.next(true)),
       switchMap((page) => this.api.getEpisodes(page)),
-      scan(this.updatePaginator, {items: [], page: 0, hasMorePages: true}),
+      scan(this.updatePaginator, { items: [], page: 0, hasMorePages: true }),
       tap(() => this.loading$.next(false)),
     );
   }
@@ -34,19 +37,19 @@ export class EpisodeListComponent {
     if (value.page === 1) {
       return value;
     }
-    
+
     accumulator.items.push(...value.items);
     accumulator.page = value.page;
     accumulator.hasMorePages = value.hasMorePages;
 
-    return {...accumulator};
+    return { ...accumulator };
   }
   /**
    * Triggers the updating of the paginator on scroll
-   * @param paginator 
-   * @returns 
+   * @param paginator
+   * @returns
    */
-  public loadMoreEpisodes(paginator:Paginator) {
+  public loadMoreEpisodes(paginator: Paginator) {
     if (!paginator.hasMorePages) {
       return;
     }

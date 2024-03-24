@@ -14,9 +14,8 @@ describe('CharacterViewComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CharacterViewComponent],
-      imports: [HttpClientModule, RouterModule.forRoot([]), SharedModule]
-    })
-      .compileComponents();
+      imports: [HttpClientModule, RouterModule.forRoot([]), SharedModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CharacterViewComponent);
     component = fixture.componentInstance;
@@ -29,13 +28,15 @@ describe('CharacterViewComponent', () => {
 
   it('display character detail', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    component.character$ = of({ 
-      name: 'test character', 
+    component.character$ = of({
+      name: 'test character',
       origin: { name: 'test' },
       location: { name: 'test' },
-      episode:[]
-   } as Character)
+      episode: [],
+    } as Character);
     fixture.detectChanges();
-    expect(compiled.querySelector('#char-name')?.textContent).toContain('test character');
+    expect(compiled.querySelector('#char-name')?.textContent).toContain(
+      'test character',
+    );
   });
 });

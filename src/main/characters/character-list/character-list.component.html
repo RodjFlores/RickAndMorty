@@ -1,58 +1,56 @@
 <div class="feature-home">
-    <div class="list-container">
-        <div class="data-controls">
-            <div class="controls-container">
-                <label class="control-label">Sort direction</label>
-                <select [(ngModel)]="sortDirection">
-                    <option value="{{SortDirection.ASC}}">Ascending</option>
-                    <option value="{{SortDirection.DESC}}">Descending</option>
-                </select>
-            </div>
+  <div class="list-container">
+    <div class="data-controls">
+      <div class="controls-container">
+        <label class="control-label">Sort direction</label>
+        <select [(ngModel)]="sortDirection">
+          <option value="{{ SortDirection.ASC }}">Ascending</option>
+          <option value="{{ SortDirection.DESC }}">Descending</option>
+        </select>
+      </div>
 
-            <div class="controls-container">
-                <label class="control-label">Sort Term</label>
-                <select [(ngModel)]="sortTerm">
-                    <option value="{{SortTerm.NAME}}">Name</option>
-                    <option value="{{SortTerm.STATUS}}">Status</option>
-                    <option value="{{SortTerm.SPECIES}}">Species</option>
-                    <option value="{{SortTerm.EPISODES}}">Episodes</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="data-controls">
-            <div class="controls-container">
-                <label class="control-label">Filter Name</label>
-                <input [(ngModel)]="filterObject.name" type="text">
-            </div>
-
-            <div class="controls-container">
-                <label class="control-label">Filter Species</label>
-                <input [(ngModel)]="filterObject.species" type="text">
-            </div>
-
-            <div class="controls-container">
-                <label class="control-label">Filter Status</label>
-                <select [(ngModel)]="filterObject.status">
-                    <option value="{{CharacterStatus.ALIVE}}">Alive</option>
-                    <option value="{{CharacterStatus.DEAD}}">Dead</option>
-                    <option value="{{CharacterStatus.UNKNOWN}}">Unknown</option>
-                </select>
-            </div>
-
-            <button class="button" (click)="resetFilters()">
-                Reset
-            </button>
-        </div>
-
-        <app-infinity-scroll 
-            [paginator$]="paginator$" 
-            [sortDirection]="sortDirection"
-            [sortTerm]="sortTerm"
-            [filterObject]="filterObject"
-            (loadMore)="loadMoreCharacters($event)"
-        >
-        </app-infinity-scroll>
-        <h4 *ngIf="loading$ | async">Loading...</h4>
+      <div class="controls-container">
+        <label class="control-label">Sort Term</label>
+        <select [(ngModel)]="sortTerm">
+          <option value="{{ SortTerm.NAME }}">Name</option>
+          <option value="{{ SortTerm.STATUS }}">Status</option>
+          <option value="{{ SortTerm.SPECIES }}">Species</option>
+          <option value="{{ SortTerm.EPISODES }}">Episodes</option>
+        </select>
+      </div>
     </div>
+
+    <div class="data-controls">
+      <div class="controls-container">
+        <label class="control-label">Filter Name</label>
+        <input [(ngModel)]="filterObject.name" type="text" />
+      </div>
+
+      <div class="controls-container">
+        <label class="control-label">Filter Species</label>
+        <input [(ngModel)]="filterObject.species" type="text" />
+      </div>
+
+      <div class="controls-container">
+        <label class="control-label">Filter Status</label>
+        <select [(ngModel)]="filterObject.status">
+          <option value="{{ CharacterStatus.ALIVE }}">Alive</option>
+          <option value="{{ CharacterStatus.DEAD }}">Dead</option>
+          <option value="{{ CharacterStatus.UNKNOWN }}">Unknown</option>
+        </select>
+      </div>
+
+      <button class="button" (click)="resetFilters()">Reset</button>
+    </div>
+
+    <app-infinity-scroll
+      [paginator$]="paginator$"
+      [sortDirection]="sortDirection"
+      [sortTerm]="sortTerm"
+      [filterObject]="filterObject"
+      (loadMore)="loadMoreCharacters($event)"
+    >
+    </app-infinity-scroll>
+    <h4 *ngIf="loading$ | async">Loading...</h4>
+  </div>
 </div>

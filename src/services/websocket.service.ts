@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { webSocket } from 'rxjs/webSocket';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WebsocketService {
   private webSocketSubject = webSocket<Object>('wss://ws.postman-echo.com/raw');

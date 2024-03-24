@@ -5,12 +5,8 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [RouterTestingModule],
+      declarations: [AppComponent],
     }).compileComponents();
   });
 
@@ -30,9 +26,14 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('#characterLink')?.textContent).toContain('Character');
-    expect(compiled.querySelector('#episodeLink')?.textContent).toContain('Episodes');
-    expect(compiled.querySelector('#connectLink')?.textContent).toContain('Connect');
-
+    expect(compiled.querySelector('#characterLink')?.textContent).toContain(
+      'Character',
+    );
+    expect(compiled.querySelector('#episodeLink')?.textContent).toContain(
+      'Episodes',
+    );
+    expect(compiled.querySelector('#connectLink')?.textContent).toContain(
+      'Connect',
+    );
   });
 });

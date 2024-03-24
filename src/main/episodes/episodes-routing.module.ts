@@ -9,13 +9,13 @@ const routes: Routes = [
     component: EpisodeListComponent,
   },
   {
-    path:'view/:id',
-    component:EpisodeViewComponent
-  }
+    path: 'view/:id',
+    component: EpisodeViewComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class EpisodesRoutingModule { }
+export class EpisodesRoutingModule {}

@@ -8,16 +8,13 @@ import { Router } from '@angular/router';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-
-  constructor(public router: Router) {
-
-  }
+  constructor(public router: Router) {}
 
   /**
    * Navigates to a specific route.
    * @param path Route to be directed to.
    */
   public navigateTo(path: string) {
-    this.router.navigate([path])
+    this.router.navigate([path]);
   }
 }

@@ -6,16 +6,16 @@ import { CharacterViewComponent } from './character-view/character-view.componen
 const routes: Routes = [
   {
     path: '',
-    component: CharacterListComponent
+    component: CharacterListComponent,
   },
   {
-    path:'view/:id',
-    component:CharacterViewComponent
-  }
+    path: 'view/:id',
+    component: CharacterViewComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class CharactersRoutingModule { }
+export class CharactersRoutingModule {}

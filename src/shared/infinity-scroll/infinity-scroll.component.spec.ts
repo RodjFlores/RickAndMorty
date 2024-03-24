@@ -15,10 +15,9 @@ describe('InfinityScrollComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [InfinityScrollComponent],
-      imports: [HttpClientModule,RouterModule.forRoot([]),SharedModule]
-    })
-    .compileComponents();
-    
+      imports: [HttpClientModule, RouterModule.forRoot([]), SharedModule],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(InfinityScrollComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -30,30 +29,38 @@ describe('InfinityScrollComponent', () => {
 
   it('should display character mode list', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    component.paginator$ = of({ 
-      items: [{
-        name:'test character',
-        status:'test status',
-        species:'test species',
-        episode:[],
-        id:0
-      }]
-   } as Paginator)
+    component.paginator$ = of({
+      items: [
+        {
+          name: 'test character',
+          status: 'test status',
+          species: 'test species',
+          episode: [],
+          id: 0,
+        },
+      ],
+    } as Paginator);
     fixture.detectChanges();
-    expect(compiled.querySelector('#char-name')?.textContent).toContain('test character');
+    expect(compiled.querySelector('#char-name')?.textContent).toContain(
+      'test character',
+    );
   });
 
   it('should display episode mode list', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    component.mode = ScrollMode.EPISODE
-    component.paginator$ = of({ 
-      items: [{
-        name:'test episode',
-        episode:'S01E01',
-        id:0
-      }]
-   } as Paginator)
+    component.mode = ScrollMode.EPISODE;
+    component.paginator$ = of({
+      items: [
+        {
+          name: 'test episode',
+          episode: 'S01E01',
+          id: 0,
+        },
+      ],
+    } as Paginator);
     fixture.detectChanges();
-    expect(compiled.querySelector('#ep-name')?.textContent).toContain('test episode');
+    expect(compiled.querySelector('#ep-name')?.textContent).toContain(
+      'test episode',
+    );
   });
 });

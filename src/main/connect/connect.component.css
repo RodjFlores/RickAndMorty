@@ -1,49 +1,49 @@
 .connection {
-    overflow: scroll;
-    height: 85%;
-    width: 85%;
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 2px;
-    padding: 12px;
-    background-color: #87F54E;
-    display: flex;
-    flex-direction: column;
+  overflow: scroll;
+  height: 85%;
+  width: 85%;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  padding: 12px;
+  background-color: #87f54e;
+  display: flex;
+  flex-direction: column;
 }
-.connection-history{
-    height: 20px;
-    width:100%;
+.connection-history {
+  height: 20px;
+  width: 100%;
 }
 
-.connection-controls{
-    margin-top: auto;
+.connection-controls {
+  margin-top: auto;
 }
 
 .button {
-    width: 100%;
-    background-color: #272727;
-    border-radius: 8px;
-    border-style: none;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    height: 40px;
-    line-height: 20px;
-    padding: 10px 16px;
-    position: relative;
-    margin-bottom:6px;
-    text-align: center;
-    text-decoration: none;
-    transition: color 100ms;
-    vertical-align: baseline;
-  }
-  
-  .button:hover,
-  .button:focus {
-    background-color: #181818;
-  }
+  width: 100%;
+  background-color: #272727;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  line-height: 20px;
+  padding: 10px 16px;
+  position: relative;
+  margin-bottom: 6px;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+}
 
-  .message-control{
-    margin:12px;
-  }
+.button:hover,
+.button:focus {
+  background-color: #181818;
+}
+
+.message-control {
+  margin: 12px;
+}

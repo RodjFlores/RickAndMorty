@@ -1,11 +1,11 @@
 <div class="feature-home">
-    <div class="list-container">
-        <app-infinity-scroll 
-            [paginator$]="paginator$" 
-            [mode]="'episode'"
-            (loadMore)="loadMoreEpisodes($event)"
-        >
-        </app-infinity-scroll>
-        <h4 *ngIf="loading$ | async">Loading...</h4>
-    </div>
+  <div class="list-container">
+    <app-infinity-scroll
+      [paginator$]="paginator$"
+      [mode]="'episode'"
+      (loadMore)="loadMoreEpisodes($event)"
+    >
+    </app-infinity-scroll>
+    <h4 *ngIf="loading$ | async">Loading...</h4>
+  </div>
 </div>

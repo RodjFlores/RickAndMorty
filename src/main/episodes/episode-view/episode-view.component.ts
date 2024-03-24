@@ -10,23 +10,29 @@ import { Episode } from '../../../models/Episode';
 @Component({
   selector: 'app-episode-view',
   templateUrl: './episode-view.component.html',
-  styleUrl: './episode-view.component.css'
+  styleUrl: './episode-view.component.css',
 })
-export class EpisodeViewComponent implements OnInit{
-  public ScrollMode = ScrollMode
+export class EpisodeViewComponent implements OnInit {
+  public ScrollMode = ScrollMode;
   public episode$: Observable<Episode>;
-  public characterPaginator$: Observable<Paginator>
-  constructor(private route: ActivatedRoute, private api: RickAndMortyApiService, private location: Location) {
-
-  }
+  public characterPaginator$: Observable<Paginator>;
+  constructor(
+    private route: ActivatedRoute,
+    private api: RickAndMortyApiService,
+    private location: Location,
+  ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       if (params['id']) {
-        this.episode$ = this.api.getEpisode(params['id']).pipe(switchMap(res => {
-          this.characterPaginator$ = this.api.getCharactersByMultiIds(res.characters)
-          return of(res)
-        }));
+        this.episode$ = this.api.getEpisode(params['id']).pipe(
+          switchMap((res) => {
+            this.characterPaginator$ = this.api.getCharactersByMultiIds(
+              res.characters,
+            );
+            return of(res);
+          }),
+        );
       }
     });
   }
@@ -34,6 +40,6 @@ export class EpisodeViewComponent implements OnInit{
    * Navigates to the previous page.
    */
   public navigateBack() {
-    this.location.back()
+    this.location.back();
   }
 }

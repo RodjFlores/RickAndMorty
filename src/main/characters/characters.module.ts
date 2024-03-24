@@ -8,16 +8,13 @@ import { SharedModule } from '../../shared/shared.module';
 import { CharacterViewComponent } from './character-view/character-view.component';
 
 @NgModule({
-  declarations: [
-    CharacterListComponent,
-    CharacterViewComponent
-  ],
+  declarations: [CharacterListComponent, CharacterViewComponent],
   imports: [
     CommonModule,
     CharactersRoutingModule,
     HttpClientModule,
     FormsModule,
-    SharedModule
-  ]
+    SharedModule,
+  ],
 })
-export class CharactersModule { }
+export class CharactersModule {}

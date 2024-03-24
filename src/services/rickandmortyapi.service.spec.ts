@@ -9,7 +9,7 @@ describe('RickAndMortyApiService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, RouterModule.forRoot([]),]
+      imports: [HttpClientModule, RouterModule.forRoot([])],
     });
     service = TestBed.inject(RickAndMortyApiService);
   });
@@ -18,7 +18,7 @@ describe('RickAndMortyApiService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should get a characters response', (done:DoneFn) => {
+  it('should get a characters response', (done: DoneFn) => {
     service.getCharacters().subscribe((value) => {
       expect(value.hasMorePages).toBeTruthy();
       expect(value.items[0].name).toBe('Rick Sanchez');
@@ -26,7 +26,7 @@ describe('RickAndMortyApiService', () => {
     });
   });
 
-  it('should get a single episode response', (done:DoneFn) => {
+  it('should get a single episode response', (done: DoneFn) => {
     service.getEpisode('1').subscribe((value) => {
       expect(value.name).toBe('Pilot');
       done();

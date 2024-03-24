@@ -1,86 +1,86 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 * {
-    font-family: "IBM Plex Sans", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 .feature-home {
-    height: 100vh;
-    width: 100vw;
-    background-color: black;
-    display: flex;
-    justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  display: flex;
+  justify-content: center;
 }
 
 .list-container {
-    margin-top: 30px;
-    background-color: #efefef;
-    border-radius: 10px;
-    height: 75vh;
-    width: 75vw;
-    padding: 30px;
+  margin-top: 30px;
+  background-color: #efefef;
+  border-radius: 10px;
+  height: 75vh;
+  width: 75vw;
+  padding: 30px;
 }
 
 .detail-container {
-    margin-top: 30px;
-    background-color: #efefef;
-    border-radius: 10px;
-    height: 75vh;
-    width: 75vw;
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  margin-top: 30px;
+  background-color: #efefef;
+  border-radius: 10px;
+  height: 75vh;
+  width: 75vw;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .detail-left {
-    height: 85%;
-    width: 50%;
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 2px;
-    padding: 12px;
-    background-color: #272727;
-    display: flex;
-    justify-content: center;
+  height: 85%;
+  width: 50%;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  padding: 12px;
+  background-color: #272727;
+  display: flex;
+  justify-content: center;
 }
 
 .detail-right {
-    overflow: scroll;
-    height: 85%;
-    width: 30%;
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 2px;
-    padding: 12px;
-    background-color: #87F54E;
+  overflow: scroll;
+  height: 85%;
+  width: 30%;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  padding: 12px;
+  background-color: #87f54e;
 }
 
 .view-button {
-    width: 100%;
-    background-color: #272727;
-    border-radius: 8px;
-    border-style: none;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    height: 40px;
-    line-height: 20px;
-    padding: 10px 16px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transition: color 100ms;
-    vertical-align: baseline;
-  }
-  
-  .view-button:hover,
-  .view-button:focus {
-    background-color: #181818;
-  }
+  width: 100%;
+  background-color: #272727;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  line-height: 20px;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+}
+
+.view-button:hover,
+.view-button:focus {
+  background-color: #181818;
+}

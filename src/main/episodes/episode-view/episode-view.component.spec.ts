@@ -13,9 +13,8 @@ describe('EpisodeViewComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [EpisodeViewComponent],
-      imports: [HttpClientModule,RouterModule.forRoot([]),SharedModule]
-    })
-      .compileComponents();
+      imports: [HttpClientModule, RouterModule.forRoot([]), SharedModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EpisodeViewComponent);
     component = fixture.componentInstance;
@@ -29,9 +28,11 @@ describe('EpisodeViewComponent', () => {
   it('display episode detail', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     component.episode$ = of({
-      name:'test ep',
-    } as Episode)
+      name: 'test ep',
+    } as Episode);
     fixture.detectChanges();
-    expect(compiled.querySelector('#ep-name')?.textContent).toContain('test ep');
+    expect(compiled.querySelector('#ep-name')?.textContent).toContain(
+      'test ep',
+    );
   });
 });

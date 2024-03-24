@@ -14,12 +14,12 @@ describe('WebsocketService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should get a response from websocket', (done:DoneFn) => {
+  it('should get a response from websocket', (done: DoneFn) => {
     service.webSocket$.subscribe((res) => {
-      expect(res).toEqual({test:'test'});
+      expect(res).toEqual({ test: 'test' });
       done();
     });
 
-    service.sendmessage({test:'test'})
+    service.sendmessage({ test: 'test' });
   });
 });

@@ -9,10 +9,9 @@ describe('ConnectComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [],
-      imports:[ConnectComponent]
-    })
-    .compileComponents();
-    
+      imports: [ConnectComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ConnectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -23,10 +22,12 @@ describe('ConnectComponent', () => {
   });
 
   it('should push a message to history', () => {
-    component.message = 'test'
-    component.sendMessage()
+    component.message = 'test';
+    component.sendMessage();
     expect(component.connectionHistory.length).toBe(1);
-    expect(component.connectionHistory[0]).toEqual({from:'me',message:'test'});
-
+    expect(component.connectionHistory[0]).toEqual({
+      from: 'me',
+      message: 'test',
+    });
   });
 });

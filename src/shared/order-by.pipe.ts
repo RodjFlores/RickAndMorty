@@ -4,27 +4,30 @@ import { Character } from '../models/Character';
 
 @Pipe({
   name: 'orderBy',
-  pure: false
+  pure: false,
 })
 export class OrderByPipe implements PipeTransform {
-
-  transform(value: Character[], direction: SortDirection, sortTerm: SortTerm): Character[] {
+  transform(
+    value: Character[],
+    direction: SortDirection,
+    sortTerm: SortTerm,
+  ): Character[] {
     if (sortTerm === null) {
-      return value
+      return value;
     }
 
     switch (sortTerm) {
       case SortTerm.STATUS:
       case SortTerm.NAME:
       case SortTerm.SPECIES:
-        return value.sort((a:Character, b:Character) => {
-          const loweredA = a[sortTerm].toLocaleLowerCase()
-          const loweredB = b[sortTerm].toLocaleLowerCase()
+        return value.sort((a: Character, b: Character) => {
+          const loweredA = a[sortTerm].toLocaleLowerCase();
+          const loweredB = b[sortTerm].toLocaleLowerCase();
           if (loweredA > loweredB) {
             return direction === SortDirection.ASC ? 1 : -1;
           }
           if (loweredB > loweredA) {
-            return direction === SortDirection.ASC ? -1 :1;
+            return direction === SortDirection.ASC ? -1 : 1;
           }
           return 0;
         });
@@ -37,8 +40,7 @@ export class OrderByPipe implements PipeTransform {
           return n2.episode.length - n1.episode.length;
         });
       default:
-        return value
+        return value;
     }
   }
-
 }

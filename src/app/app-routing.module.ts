@@ -4,22 +4,28 @@ import { ConnectComponent } from '../main/connect/connect.component';
 import { HomeComponent } from '../main/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   {
     path: 'characters',
-    loadChildren: () => import('../../src/main/characters/characters.module').then(m => m.CharactersModule)
+    loadChildren: () =>
+      import('../../src/main/characters/characters.module').then(
+        (m) => m.CharactersModule,
+      ),
   },
   {
     path: 'episodes',
-    loadChildren: () => import('../../src/main/episodes/episodes.module').then(m => m.EpisodesModule)
+    loadChildren: () =>
+      import('../../src/main/episodes/episodes.module').then(
+        (m) => m.EpisodesModule,
+      ),
   },
   { path: 'connect', component: ConnectComponent },
-  { path: '**', redirectTo: 'home', pathMatch: 'full'},
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

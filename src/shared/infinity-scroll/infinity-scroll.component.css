@@ -1,40 +1,39 @@
 .list-results {
-    height: 55vh;
-    overflow: scroll;
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 2px;
-    padding: 12px
+  height: 55vh;
+  overflow: scroll;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  padding: 12px;
 }
 
-
 .list-item {
-    display: flex;
-    margin: 3px;
-    padding: 3px;
-    justify-content: space-between;
+  display: flex;
+  margin: 3px;
+  padding: 3px;
+  justify-content: space-between;
 }
 
 .list-item:hover {
-    background-color: #87F54E;
-    cursor: pointer
+  background-color: #87f54e;
+  cursor: pointer;
 }
 
 .list-item-name {
-    width: 350px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  width: 350px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .list-item-img {
-    width: 120px;
-    margin-right: 6px
+  width: 120px;
+  margin-right: 6px;
 }
 
 .list-item-info {
-    width: 140px;
-    margin-top: 12px;
-    margin-left: auto;
-    margin-right: 30px;
+  width: 140px;
+  margin-top: 12px;
+  margin-left: auto;
+  margin-right: 30px;
 }

@@ -1,23 +1,23 @@
-.data-controls{
-    padding:3px;
-    display:flex
+.data-controls {
+  padding: 3px;
+  display: flex;
 }
 
-.controls-container{
-    margin:3px
+.controls-container {
+  margin: 3px;
 }
 
-.control-label{
-    display: block;
+.control-label {
+  display: block;
 }
 
 .button {
   margin-left: auto;
-  background-color: #87F54E;
+  background-color: #87f54e;
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
   height: 40px;

@@ -7,22 +7,22 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-connect',
   templateUrl: './connect.component.html',
   styleUrl: './connect.component.css',
-  imports: [CommonModule,FormsModule],
-  standalone:true
+  imports: [CommonModule, FormsModule],
+  standalone: true,
 })
 export class ConnectComponent {
-  public connectionHistory:Object[] = []
-  public message:string = 'Hello!'
+  public connectionHistory: Object[] = [];
+  public message: string = 'Hello!';
 
-  constructor(private ws:WebsocketService ){
+  constructor(private ws: WebsocketService) {
     this.ws.webSocket$.subscribe({
       error: (e) => console.error(e),
       next: (res) => {
-        const msgObject = {...res, from: "THE ECHO OF THE VOID"}
+        const msgObject = { ...res, from: 'THE ECHO OF THE VOID' };
         this.connectionHistory.push(msgObject);
       },
-      complete: () => this.connectionHistory.push({"ECHO_CHAMBER":"CLOSED!"}),
-    })
+      complete: () => this.connectionHistory.push({ ECHO_CHAMBER: 'CLOSED!' }),
+    });
   }
 
   /**
@@ -32,9 +32,9 @@ export class ConnectComponent {
   sendMessage() {
     const msgObject = {
       from: 'me',
-      message:this.message
-    }
-    this.connectionHistory.push(msgObject)
+      message: this.message,
+    };
+    this.connectionHistory.push(msgObject);
     this.ws.sendmessage(msgObject);
   }
 
