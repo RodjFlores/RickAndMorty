@@ -1,13 +1,14 @@
 import { importProvidersFrom } from '@angular/core';
 import { AppComponent } from './app/app.component';
-import { SharedModule } from './shared/shared.module';
 import { withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
-import { AppRoutingModule } from './app/app-routing.module';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
+import { APP_ROUTES } from './app/app-routes';
 
 bootstrapApplication(AppComponent, {
     providers: [
-        importProvidersFrom(BrowserModule, AppRoutingModule, SharedModule),
+        importProvidersFrom(BrowserModule),
+        provideRouter(APP_ROUTES),
         provideHttpClient(withInterceptorsFromDi())
     ]
 })

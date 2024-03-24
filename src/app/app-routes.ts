@@ -1,31 +1,24 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { ConnectComponent } from '../main/connect/connect.component';
 import { HomeComponent } from '../main/home/home.component';
 
-const routes: Routes = [
+export const APP_ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   {
     path: 'characters',
     loadChildren: () =>
-      import('../../src/main/characters/characters.module').then(
-        (m) => m.CharactersModule,
+      import('../../src/main/characters/character-routes').then(
+        (m) => m.CHARACTER_ROUTES,
       ),
   },
   {
     path: 'episodes',
     loadChildren: () =>
-      import('../../src/main/episodes/episodes.module').then(
-        (m) => m.EpisodesModule,
+      import('../../src/main/episodes/episode-routes').then(
+        (m) => m.EPISODES_ROUTES,
       ),
   },
   { path: 'connect', component: ConnectComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}

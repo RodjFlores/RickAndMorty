@@ -5,8 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { of } from 'rxjs';
 import { Paginator } from '../../models/Paginator';
-import { SharedModule } from '../shared.module';
 import { ScrollMode } from '../../enums/ScrollMode.enum';
+import { FilterByPipe } from '../filter-by.pipe';
+import { OrderByPipe } from '../order-by.pipe';
 
 describe('InfinityScrollComponent', () => {
   let component: InfinityScrollComponent;
@@ -14,7 +15,7 @@ describe('InfinityScrollComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [HttpClientModule, RouterModule.forRoot([]), SharedModule, InfinityScrollComponent],
+    imports: [HttpClientModule, RouterModule.forRoot([]),FilterByPipe, OrderByPipe, InfinityScrollComponent],
 }).compileComponents();
 
     fixture = TestBed.createComponent(InfinityScrollComponent);
