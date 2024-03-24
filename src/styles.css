@@ -51,7 +51,7 @@ body {
 }
 
 .detail-right {
-  overflow: scroll;
+  overflow-y: auto;
   height: 85%;
   width: 30%;
   border-radius: 10px;
@@ -82,4 +82,18 @@ body {
 
 .view-button:hover {
   background-color: #181818;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;   
+  height: 4px;          
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;   
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #272727;   
+  border-radius: 10px;
 }
