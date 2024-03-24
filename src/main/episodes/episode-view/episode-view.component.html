@@ -1,17 +1,18 @@
 <div class="feature-home">
-  <div class="detail-container" *ngIf="episode$ | async as ep">
-    <app-infinity-scroll
-      class="scroller"
-      [mode]="ScrollMode.EP_CHAR"
-      [paginator$]="characterPaginator$"
-    ></app-infinity-scroll>
-
-    <div class="detail-right">
-      <h5>{{ ep.episode }}</h5>
-      <h2 id="ep-name">{{ ep.name }}</h2>
-      <hr />
-      <p><b>Air Date: </b>{{ ep.air_date }}</p>
-      <button class="view-button" (click)="navigateBack()">Back</button>
+  @if (episode$ | async; as ep) {
+    <div class="detail-container">
+      <app-infinity-scroll
+        class="scroller"
+        [mode]="ScrollMode.EP_CHAR"
+        [paginator$]="characterPaginator$"
+      ></app-infinity-scroll>
+      <div class="detail-right">
+        <h5>{{ ep.episode }}</h5>
+        <h2 id="ep-name">{{ ep.name }}</h2>
+        <hr />
+        <p><b>Air Date: </b>{{ ep.air_date }}</p>
+        <button class="view-button" (click)="navigateBack()">Back</button>
+      </div>
     </div>
-  </div>
+  }
 </div>

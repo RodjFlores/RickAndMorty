@@ -1,9 +1,11 @@
 <div class="feature-home">
   <div class="detail-container">
     <div class="connection">
-      <div class="connection-history" *ngFor="let history of connectionHistory">
-        {{ history | json }}
-      </div>
+      @for (history of connectionHistory; track history) {
+        <div class="connection-history">
+          {{ history | json }}
+        </div>
+      }
       <div class="connection-controls">
         <label
           >My Message:

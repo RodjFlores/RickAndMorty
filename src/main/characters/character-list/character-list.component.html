@@ -49,8 +49,10 @@
       [sortTerm]="sortTerm"
       [filterObject]="filterObject"
       (loadMore)="loadMoreCharacters($event)"
-    >
+      >
     </app-infinity-scroll>
-    <h4 *ngIf="loading$ | async">Loading...</h4>
+    @if (loading$ | async) {
+      <h4>Loading...</h4>
+    }
   </div>
 </div>

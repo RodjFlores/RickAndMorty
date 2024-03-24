@@ -36,22 +36,6 @@ export class FilterByPipe implements PipeTransform {
       return true;
     });
 
-    if (newValue.length === 0) {
-      return [
-        {
-          image: 'https://i.imgur.com/CauIpSw.png',
-          name: 'ERROR: DOES NOT EXIST!',
-          id: 99999999,
-          species: 'xxx',
-          status: '404',
-          type: null,
-          origin: null,
-          location: null,
-          episode: [],
-          gender: 'x',
-        },
-      ];
-    }
     return newValue;
   }
 }

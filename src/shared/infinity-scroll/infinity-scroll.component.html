@@ -1,66 +1,69 @@
-<div
-  class="list-results"
-  [ngStyle]="{ height: mode === 'episode' ? '70vh' : '55vh' }"
-  *ngIf="paginator$ | async as paginator"
-  infiniteScroll
-  [infiniteScrollDistance]="2"
-  [infiniteScrollThrottle]="1000"
-  (scrolled)="emitLoadMore(paginator)"
-  [scrollWindow]="false"
->
+@if (paginator$ | async; as paginator) {
+<div class="list-results" [ngStyle]="{ height: mode === 'episode' ? '70vh' : '55vh' }" infiniteScroll
+  [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="emitLoadMore(paginator)"
+  [scrollWindow]="false">
   <!-- Character List Template -->
-  <ng-container
-    *ngIf="mode == ScrollMode.CHARACTER || mode == ScrollMode.EP_CHAR"
-  >
-    <div
-      class="list-item"
-      *ngFor="
-        let char of paginator.items
-          | orderBy: sortDirection : sortTerm
-          | filterBy: filterObject
-      "
-      (click)="navigateToDetails(char.id)"
-    >
-      <img class="list-item-img" src="{{ char.image }}" />
-      <div class="list-item-name">
-        <h2 id="char-name">
-          {{
-            char.name.length > 24
-              ? char.name.substring(0, 24) + "..."
-              : char.name
-          }}
-        </h2>
-      </div>
-      <div class="list-item-info">
-        <b>Status:</b> {{ char.status | titlecase }}<br />
-        <b>Species:</b> {{ char.species | titlecase }}<br />
-        <b>Episodes:</b> {{ char.episode.length }}
-      </div>
-      <br />
+  @if (mode == ScrollMode.CHARACTER || mode == ScrollMode.EP_CHAR) {
+  @for (
+  char of paginator.items
+  | orderBy: sortDirection : sortTerm
+  | filterBy: filterObject; track char) {
+  <div class="list-item" (click)="navigateToDetails(char.id)">
+    <img class="list-item-img" src="{{ char.image }}" />
+    <div class="list-item-name">
+      <h2 id="char-name">
+        {{
+        char.name.length > 24
+        ? char.name.substring(0, 24) + "..."
+        : char.name
+        }}
+      </h2>
     </div>
-  </ng-container>
-
+    <div class="list-item-info">
+      <b>Status:</b> {{ char.status | titlecase }}<br />
+      <b>Species:</b> {{ char.species | titlecase }}<br />
+      <b>Episodes:</b> {{ char.episode.length }}
+    </div>
+    <br />
+  </div>
+  }@empty {
+  <div class="list-item">
+    <img class="list-item-img" src="https://i.imgur.com/CauIpSw.png" />
+    <div class="list-item-name">
+      <h2 id="char-name">
+        404 LOST CAT
+      </h2>
+    </div>
+    <div class="list-item-info">
+      <b>Status:</b> xxx<br />
+      <b>Species:</b> LOST<br />
+      <b>Episodes:</b> -1
+    </div>
+    <br />
+  </div>
+  }
+  }
   <!-- Episode List Template -->
-  <ng-container *ngIf="mode == ScrollMode.EPISODE">
-    <div
-      class="list-item"
-      *ngFor="let ep of paginator.items"
-      (click)="navigateToDetails(ep.id)"
-    >
-      <div class="list-item-name" style="width: 400px">
-        <h2 id="ep-name">
-          {{ ep.name.length > 28 ? ep.name.substring(0, 28) + "..." : ep.name }}
-        </h2>
-      </div>
-      <div class="list-item-info" style="width: 240px">
-        <b>Air Date:</b> {{ ep.air_date }}<br />
-        <b>Season:</b> {{ ep.episode.substring(0, 3) }}<br />
-        <b>Episode:</b> {{ ep.episode.substring(3) }}<br />
-      </div>
+  @if (mode == ScrollMode.EPISODE) {
+  @for (ep of paginator.items; track ep) {
+  <div class="list-item" (click)="navigateToDetails(ep.id)">
+    <div class="list-item-name" style="width: 400px">
+      <h2 id="ep-name">
+        {{ ep.name.length > 28 ? ep.name.substring(0, 28) + "..." : ep.name }}
+      </h2>
     </div>
-  </ng-container>
-
-  <h4 *ngIf="!paginator.hasMorePages">
+    <div class="list-item-info" style="width: 240px">
+      <b>Air Date:</b> {{ ep.air_date }}<br />
+      <b>Season:</b> {{ ep.episode.substring(0, 3) }}<br />
+      <b>Episode:</b> {{ ep.episode.substring(3) }}<br />
+    </div>
+  </div>
+  }
+  }
+  @if (!paginator.hasMorePages) {
+  <h4>
     You have reached the end of the universe!
   </h4>
+  }
 </div>
+}

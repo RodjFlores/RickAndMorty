@@ -1,25 +1,26 @@
 <div class="feature-home">
-  <div class="detail-container" *ngIf="character$ | async as char">
-    <div class="detail-left">
-      <div
-        class="detail-image"
-        [ngStyle]="{ 'background-image': 'url(' + char.image + ')' }"
-      ></div>
+  @if (character$ | async; as char) {
+    <div class="detail-container">
+      <div class="detail-left">
+        <div
+          class="detail-image"
+          [ngStyle]="{ 'background-image': 'url(' + char.image + ')' }"
+        ></div>
+      </div>
+      <div class="detail-right">
+        <h5>0{{ char.id }}</h5>
+        <h2 id="char-name">{{ char.name }}</h2>
+        <hr />
+        <p><b>Species: </b>{{ char.species | titlecase }}</p>
+        <p><b>Gender: </b>{{ char.gender | titlecase }}</p>
+        <p><b>Status: </b>{{ char.status | titlecase }}</p>
+        <hr />
+        <h3>Dimensional Origins</h3>
+        <p><b>Original: </b>{{ char.origin.name | titlecase }}</p>
+        <p><b>Current: </b>{{ char.location.name | titlecase }}</p>
+        <p><b># of Sightings: </b>{{ char.episode.length }}</p>
+        <button class="view-button" (click)="navigateBack()">Back</button>
+      </div>
     </div>
-
-    <div class="detail-right">
-      <h5>0{{ char.id }}</h5>
-      <h2 id="char-name">{{ char.name }}</h2>
-      <hr />
-      <p><b>Species: </b>{{ char.species | titlecase }}</p>
-      <p><b>Gender: </b>{{ char.gender | titlecase }}</p>
-      <p><b>Status: </b>{{ char.status | titlecase }}</p>
-      <hr />
-      <h3>Dimensional Origins</h3>
-      <p><b>Original: </b>{{ char.origin.name | titlecase }}</p>
-      <p><b>Current: </b>{{ char.location.name | titlecase }}</p>
-      <p><b># of Sightings: </b>{{ char.episode.length }}</p>
-      <button class="view-button" (click)="navigateBack()">Back</button>
-    </div>
-  </div>
+  }
 </div>
