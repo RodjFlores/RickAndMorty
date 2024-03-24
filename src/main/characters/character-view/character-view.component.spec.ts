@@ -4,7 +4,6 @@ import { CharacterViewComponent } from './character-view.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { Character } from '../../../models/Character';
-import { SharedModule } from '../../../shared/shared.module';
 import { of } from 'rxjs';
 
 describe('CharacterViewComponent', () => {
@@ -13,7 +12,7 @@ describe('CharacterViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [HttpClientModule, RouterModule.forRoot([]), SharedModule, CharacterViewComponent],
+    imports: [HttpClientModule, RouterModule.forRoot([]), CharacterViewComponent],
 }).compileComponents();
 
     fixture = TestBed.createComponent(CharacterViewComponent);

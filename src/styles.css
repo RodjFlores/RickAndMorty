@@ -80,7 +80,6 @@ body {
   vertical-align: baseline;
 }
 
-.view-button:hover,
-.view-button:focus {
+.view-button:hover {
   background-color: #181818;
 }

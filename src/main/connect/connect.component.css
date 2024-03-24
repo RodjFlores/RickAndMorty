@@ -39,8 +39,7 @@
   vertical-align: baseline;
 }
 
-.button:hover,
-.button:focus {
+.button:hover{
   background-color: #181818;
 }
 

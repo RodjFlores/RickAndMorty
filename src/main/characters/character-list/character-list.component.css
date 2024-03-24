@@ -34,8 +34,7 @@
   width: 180px;
 }
 
-.button:hover,
-.button:focus {
+.button:hover{
   background-color: #4ba81d;
 }
 

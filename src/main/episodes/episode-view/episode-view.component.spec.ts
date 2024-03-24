@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { of } from 'rxjs';
 import { Episode } from '../../../models/Episode';
-import { SharedModule } from '../../../shared/shared.module';
 
 describe('EpisodeViewComponent', () => {
   let component: EpisodeViewComponent;
@@ -12,7 +11,7 @@ describe('EpisodeViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [HttpClientModule, RouterModule.forRoot([]), SharedModule, EpisodeViewComponent],
+    imports: [HttpClientModule, RouterModule.forRoot([]), EpisodeViewComponent],
 }).compileComponents();
 
     fixture = TestBed.createComponent(EpisodeViewComponent);
