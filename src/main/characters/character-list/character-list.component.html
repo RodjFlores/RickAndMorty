@@ -2,16 +2,16 @@
   <div class="list-container">
     <div class="data-controls">
       <div class="controls-container">
-        <label class="control-label">Sort direction</label>
-        <select [(ngModel)]="sortDirection">
+        <label class="control-label" for="sortDirection">Sort direction</label>
+        <select for="sortDirection" [(ngModel)]="sortDirection">
           <option value="{{ SortDirection.ASC }}">Ascending</option>
           <option value="{{ SortDirection.DESC }}">Descending</option>
         </select>
       </div>
 
       <div class="controls-container">
-        <label class="control-label">Sort Term</label>
-        <select [(ngModel)]="sortTerm">
+        <label class="control-label" for="sortTerm">Sort Term</label>
+        <select for="sortTerm" [(ngModel)]="sortTerm">
           <option value="{{ SortTerm.NAME }}">Name</option>
           <option value="{{ SortTerm.STATUS }}">Status</option>
           <option value="{{ SortTerm.SPECIES }}">Species</option>
@@ -22,18 +22,18 @@
 
     <div class="data-controls">
       <div class="controls-container">
-        <label class="control-label">Filter Name</label>
-        <input [(ngModel)]="filterObject.name" type="text" />
+        <label class="control-label" for="filterName">Filter Name</label>
+        <input  name="filterName" [(ngModel)]="filterObject.name" type="text" />
       </div>
 
       <div class="controls-container">
-        <label class="control-label">Filter Species</label>
-        <input [(ngModel)]="filterObject.species" type="text" />
+        <label class="control-label" for="filterSpecies">Filter Species</label>
+        <input for="filterSpecies" [(ngModel)]="filterObject.species" type="text" />
       </div>
 
       <div class="controls-container">
-        <label class="control-label">Filter Status</label>
-        <select [(ngModel)]="filterObject.status">
+        <label class="control-label" for="filterStatus">Filter Status</label>
+        <select name="filterStatus" [(ngModel)]="filterObject.status">
           <option value="{{ CharacterStatus.ALIVE }}">Alive</option>
           <option value="{{ CharacterStatus.DEAD }}">Dead</option>
           <option value="{{ CharacterStatus.UNKNOWN }}">Unknown</option>
