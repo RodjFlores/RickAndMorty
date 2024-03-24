@@ -1,6 +1,6 @@
 # Rick nd Morty
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.\
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
 
 * Uses Node v20.11.1
 * Uses the [rickandmortyapi](https://rickandmortyapi.com/)
